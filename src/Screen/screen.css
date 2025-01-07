@@ -1,0 +1,6 @@
+.screen {
+  position: relative;
+  height: 91vh;
+  width: 91vw;
+  border: 2px solid #280a31;
+}
