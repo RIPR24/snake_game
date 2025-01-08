@@ -4,3 +4,10 @@
   width: 91vw;
   border: 2px solid #280a31;
 }
+
+.snk {
+  height: 2vh;
+  width: 2vw;
+  background-color: #0f5c2f;
+  position: absolute;
+}
