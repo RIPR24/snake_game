@@ -3,9 +3,9 @@ import { T } from "./snkcls";
 const controls = (key: string, dir: T) => {
   if (dir.y === 0) {
     if (key === "ArrowUp") {
-      return { x: 0, y: -2 };
+      return { x: 0, y: -4 };
     } else if (key === "ArrowDown") {
-      return { x: 0, y: 2 };
+      return { x: 0, y: 4 };
     }
   } else {
     if (key === "ArrowLeft") {
@@ -14,6 +14,7 @@ const controls = (key: string, dir: T) => {
       return { x: 2, y: 0 };
     }
   }
+  return dir;
 };
 
 export default controls;
