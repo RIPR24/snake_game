@@ -10,13 +10,16 @@ const Screen = ({
   setHom: React.Dispatch<React.SetStateAction<string>>;
 }) => {
   const [dir, setDir] = useState<T>({ x: 2, y: 0 });
-  let cd = false;
+  const [cd, setCd] = useState(false);
 
   const update = (e: KeyboardEvent) => {
-    if (cd) {
-      setDir((pre) => controls(e.code, pre));
-      cd = false;
-    }
+    setCd((pre) => {
+      if (pre) {
+        setDir((pre) => controls(e.code, pre));
+        return false;
+      }
+      return pre;
+    });
   };
 
   useEffect(() => {
@@ -29,7 +32,7 @@ const Screen = ({
 
   return (
     <div className="screen">
-      <Snake dir={dir} setHom={setHom} cd={cd} />
+      <Snake dir={dir} setHom={setHom} setCd={setCd} />
     </div>
   );
 };

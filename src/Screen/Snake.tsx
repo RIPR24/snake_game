@@ -4,10 +4,10 @@ import snake, { T } from "./snkcls.tsx";
 type props = {
   dir: T;
   setHom: React.Dispatch<React.SetStateAction<string>>;
-  cd: boolean;
+  setCd: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Snake = ({ dir, setHom, cd }: props) => {
+const Snake = ({ dir, setHom, setCd }: props) => {
   const [snk, setSnk] = useState(snake.render());
   const [food, setFood] = useState<T>({ x: 54, y: 48 });
 
@@ -39,7 +39,7 @@ const Snake = ({ dir, setHom, cd }: props) => {
         snake.pop();
       }
       setSnk(snake.render());
-      cd = true;
+      setCd(true);
     }, 100);
 
     return () => {
