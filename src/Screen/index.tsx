@@ -4,11 +4,13 @@ import Snake from "./Snake";
 import { T } from "./snkcls";
 import controls from "./controls";
 
-const Screen = ({
-  setHom,
-}: {
+type props = {
   setHom: React.Dispatch<React.SetStateAction<string>>;
-}) => {
+  speed: number;
+  setScore: React.Dispatch<React.SetStateAction<number>>;
+};
+
+const Screen = ({ setHom, speed, setScore }: props) => {
   const [dir, setDir] = useState<T>({ x: 2, y: 0 });
   const [cd, setCd] = useState(false);
 
@@ -32,7 +34,13 @@ const Screen = ({
 
   return (
     <div className="screen">
-      <Snake dir={dir} setHom={setHom} setCd={setCd} />
+      <Snake
+        dir={dir}
+        setHom={setHom}
+        setCd={setCd}
+        speed={speed}
+        setScore={setScore}
+      />
     </div>
   );
 };

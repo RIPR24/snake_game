@@ -34,3 +34,16 @@ button {
   font-size: 1.8rem;
   color: #250e2c;
 }
+
+.speed {
+  height: 40px;
+  width: 60px;
+  border-radius: 10px;
+  color: #242424;
+  padding: 0 12px;
+  font-size: 1.1rem;
+}
+
+.speed * {
+  color: #242424;
+}

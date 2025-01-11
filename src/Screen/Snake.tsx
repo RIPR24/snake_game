@@ -5,9 +5,11 @@ type props = {
   dir: T;
   setHom: React.Dispatch<React.SetStateAction<string>>;
   setCd: React.Dispatch<React.SetStateAction<boolean>>;
+  setScore: React.Dispatch<React.SetStateAction<number>>;
+  speed: number;
 };
 
-const Snake = ({ dir, setHom, setCd }: props) => {
+const Snake = ({ dir, setHom, setCd, speed, setScore }: props) => {
   const [snk, setSnk] = useState(snake.render());
   const [food, setFood] = useState<T>({ x: 54, y: 48 });
 
@@ -29,6 +31,7 @@ const Snake = ({ dir, setHom, setCd }: props) => {
         y: (prepos.y + dir.y + 92) % 92,
       };
       if (snake.checkEl(newpos)) {
+        setScore(((snake.getSize() - 2) * 120) / speed);
         snake.reset();
         setHom("GAME OVER");
       }
@@ -40,12 +43,12 @@ const Snake = ({ dir, setHom, setCd }: props) => {
       }
       setSnk(snake.render());
       setCd(true);
-    }, 100);
+    }, speed);
 
     return () => {
       clearInterval(interval);
     };
-  }, [dir, food]);
+  }, [dir, food, speed]);
 
   return (
     <>
