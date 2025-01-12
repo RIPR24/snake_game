@@ -9,7 +9,13 @@ function App() {
   return (
     <div className="app">
       {hom ? (
-        <Home heading={hom} setHom={sethom} setSpeed={setSpeed} score={score} />
+        <Home
+          heading={hom}
+          setHom={sethom}
+          setSpeed={setSpeed}
+          score={score}
+          speed={speed}
+        />
       ) : (
         <Screen setHom={sethom} speed={speed} setScore={setScore} />
       )}

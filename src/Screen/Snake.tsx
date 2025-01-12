@@ -31,7 +31,7 @@ const Snake = ({ dir, setHom, setCd, speed, setScore }: props) => {
         y: (prepos.y + dir.y + 92) % 92,
       };
       if (snake.checkEl(newpos)) {
-        setScore(((snake.getSize() - 2) * 120) / speed);
+        setScore((snake.getSize() - 2) * speed);
         snake.reset();
         setHom("GAME OVER");
       }
@@ -43,7 +43,7 @@ const Snake = ({ dir, setHom, setCd, speed, setScore }: props) => {
       }
       setSnk(snake.render());
       setCd(true);
-    }, speed);
+    }, 100 - speed * 20);
 
     return () => {
       clearInterval(interval);
