@@ -9,7 +9,7 @@ type props = {
 };
 
 const Home = ({ heading, setHom, setSpeed, score, speed }: props) => {
-  const [hs, setHs] = useState(0);
+  const [hs, setHs] = useState(1);
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSpeed(Number(e.target.value));
